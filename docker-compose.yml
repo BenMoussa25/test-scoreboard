@@ -11,22 +11,19 @@ services:
       mode: replicated
       replicas: 3
     ports:
-      - "5000:5000" 
+      - "5000:5000"
     environment:
       - CTFd_TOKEN=TOKEN
       - start_date=2000-01-01 00:00:00
       - finish_date=2000-01-01 00:00:00
       - CTF_TITLE=TitleCTF
-      # used for dashboard login
       - admin_token=admin_token_to_change
-      # needed for socket io to work correctly
       - DOMAIN=localhost
       - PORT=5000
-      # set to true if domain running on HTTPS
-      # needed for cookie flag "secure"
-      - HTTPS=true
+      - CLIENT_URL=http://localhost:5173
+      - HTTPS=false
+      - VITE_SUPABASE_URL=${VITE_SUPABASE_URL}
+      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}
     volumes:
-      - ./app/activity.log:/app/activity.log
-      - ./app/db:/app/db
-      - ./app/views:/app/views     
-      - ./app/public:/app/public     
+      - ./server/activity.log:/app/server/activity.log
+      - ./.env:/app/.env     

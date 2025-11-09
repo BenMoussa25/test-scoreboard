@@ -1,0 +1,15 @@
+{
+  "name": "ctf-live-scoreboard",
+  "version": "1.0.0",
+  "description": "A live scoreboard app for CTFd built with MERN stack",
+  "scripts": {
+    "install:server": "cd server && npm install",
+    "install:client": "cd client && npm install",
+    "install:all": "npm run install:server && npm run install:client",
+    "build": "cd client && npm run build",
+    "start:server": "cd server && npm start",
+    "start": "npm run start:server"
+  },
+  "author": "j3seer",
+  "license": "ISC"
+}
